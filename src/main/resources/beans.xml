@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Kowalscy -->
+<bean id = "janK" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Jan"></property>
+    <property name="rokUr" value="1947"></property>    
+</bean>
+<bean id = "zofiaK" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Zofia"></property>
+    <property name="rokUr" value="1949"></property>    
+</bean>
+<bean id = "marysiaK" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Maria"></property>
+    <property name="rokUr" value="1970"></property> 
+    <property name="mama" ref="zofiaK"></property>
+    <property name="tata" ref="janK"></property>   
+</bean>
+<bean id = "basiaK" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Barbara"></property>
+    <property name="rokUr" value="1972"></property> 
+    <property name="mama" ref="zofiaK"></property>
+    <property name="tata" ref="janK"></property>     
+</bean>
+<bean id = "kowalscy" class="com.example.springdemo.domain.Rodzina">
+    <property name="mama" ref="zofiaK"></property>
+    <property name="tata" ref="janK"></property>
+    <property name ="dzieci" >
+        <list>
+            <ref bean ="marysiaK" />
+            <ref bean ="basiaK" />
+        </list>
+    </property>    
+</bean>
+<!-- Nowakowie -->
+<bean id = "janN" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Janek"></property>
+    <property name="rokUr" value="1967"></property>    
+</bean>
+<bean id = "zofiaN" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Zosia"></property>
+    <property name="rokUr" value="1969"></property>    
+</bean>
+<bean id = "marysiaN" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Marysia"></property>
+    <property name="rokUr" value="1990"></property>    
+    <property name="mama" ref="zofiaN"></property>
+    <property name="tata" ref="janN"></property>   
+</bean>
+<bean id = "basiaN" class="com.example.springdemo.domain.Osoba">
+    <property name="imie" value="Basia"></property>
+    <property name="rokUr" value="1992"></property>    
+    <property name="mama" ref="zofiaN"></property>
+    <property name="tata" ref="janN"></property>   
+</bean>
+<bean id = "nowakowie" class="com.example.springdemo.domain.Rodzina">
+    <property name="mama" ref="zofiaN"></property>
+    <property name="tata" ref="janN"></property>
+    
+    <property name ="dzieci" >
+        <list>
+            <ref bean ="marysiaN" />
+            <ref bean ="basiaN" />
+        </list>
+    </property>    
+</bean>
+
+<bean id="kamienica" class="com.example.springdemo.domain.Dom">
+    <property name="rodzina">
+        <list>
+            <ref bean="kowalscy" />
+            <ref bean="nowakowie" />
+        </list> 
+    </property>
+</bean>
+
+</beans>
