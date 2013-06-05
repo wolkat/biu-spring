@@ -24,11 +24,11 @@ public class Main {
 		Rodzina n = (Rodzina) context.getBean("nowakowie");
 		System.out.println("Mama "+ n.getMama().getImie());
 		System.out.println("Dziecko o imieniu: " + n.getDzieci().get(0).getImie() 
-				+ " ma tat� o imieniu " + n.getDzieci().get(0).getTata().getImie());
+				+ " ma tate o imieniu " + n.getDzieci().get(0).getTata().getImie());
 		System.out.println("Dziecko o imieniu: " + n.getDzieci().get(1).getImie());
 		
 		
-		System.out.println("\nMieszka�cy kamienicy:");
+		System.out.println("\nMieszkancy kamienicy:");
 		Dom d = (Dom) context.getBean("kamienica");
 		/*
 			todo: wyswietl lokatorów kamienicy
